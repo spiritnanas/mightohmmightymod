@@ -208,6 +208,7 @@ class dataCollectionObj:
             print(data)
             #Writes the data to the SD Card.
             sdCardOutput(fileOut,str(data))
+            
         while(mainMenuReset == False):
            continue 
         
@@ -228,7 +229,9 @@ class dataGraphObj:
         oled.text("{:.3f}uSvh".format(data[3]),50,2,0)
         for x in graphCoords:
             oled.fill_rect(x[0],x[1],x[2],x[3],1)
+            #oled.fill_rect(x[0]-6,x[1],x[2]-6,x[3],0)
         #oled.fill_rect(128-4,64-40, 128, 64, 1)
+        
         
         oled.show()
 
@@ -244,7 +247,7 @@ class dataGraphObj:
         
         screenSizeX = 128
         screenSizeY = 64
-        screenDivisions = 16
+        screenDivisions = 32
         divisionSize = int(floor(screenSizeX / screenDivisions))
         
         graphCoords = []
@@ -264,12 +267,12 @@ class dataGraphObj:
                     graphCoords.pop(0)
                 except:
                     print("List is empty!")
-                graphCoords.append([screenSizeX - divisionSize, screenSizeY - int(data[2]),screenSizeX,screenSizeY])
+                graphCoords.append([screenSizeX - divisionSize, screenSizeY - int(data[2]),divisionSize,screenSizeY])
             else:
-                graphCoords.append([screenSizeX - divisionSize, screenSizeY - int(data[2]),screenSizeX,screenSizeY])
+                graphCoords.append([screenSizeX - divisionSize, screenSizeY - int(data[2]),divisionSize,screenSizeY])
             for x in range(0,len(graphCoords)-1):
                 graphCoords[x][0] = graphCoords[x][0] - divisionSize
-                graphCoords[x][2] = graphCoords[x][2] - divisionSize
+                #graphCoords[x][2] = graphCoords[x][2] - divisionSize
             
             print(graphCoords)
             
@@ -464,7 +467,7 @@ def main():
     #ConstantMeteringObjects
     logCont = dataCollectionObj(5, "contLog", True, 10)
     
-    graphData = dataGraphObj(5, "contLog", True, 10)
+    graphData = dataGraphObj(1, "contLog", True, 10)
     
     #TimedMeterMenu
     timedMenu = navPane(highlighted = True,uiType = "MenuOption",sizeX = 128, sizeY = 12, name = "Timed Metering", contentText = "Timed Metering", locX = 4)
@@ -480,7 +483,7 @@ def main():
     mainMenu = navPane(True,"MenuOption",128,12,"Main Menu", "Main Menu", 4)
     constantMeteringMenuOption = navPane(False,"MenuOption",128,12,"constantMeteringMenuOption", "Const. Metering", 15, logCont)
     timedMeterOptions = navPane(False,"MenuOption",128,12,"timedMeterOptions", "Timed Metering", 26, timedMenu)
-    graphData = navPane(False,"MenuOption",128,12,"placeholder", "Graph - TBD",37, link = graphData)
+    graphData = navPane(False,"MenuOption",128,12,"placeholder", "Graph",37, link = graphData)
     setup = navPane(False,"MenuOption",128,12,"SetupMenu", "Setup - TBD",48)
 
 
