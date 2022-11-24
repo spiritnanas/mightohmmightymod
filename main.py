@@ -15,12 +15,13 @@ sleep(1)
 
 counts = 0 #geiger counts registered 
 cumUsv = 0 #Cumulative micro servets
-mainMenuReset = False
-downButton = False
-upButton = False
-centerButton = False
-leftButton = False
-navCursor = 1
+mainMenuReset = False #flagged in various functions. When true, the program will return to the main menu. 
+downButton = False #changed by function attached to an interupt pin. used when navigating menues. 
+upButton = False #changed by function attached to an interupt pin. used when navigating menues. 
+centerButton = False #changed by function attached to an interupt pin. used when navigating menues. 
+leftButton = False #changed by function attached to an interupt pin. used when navigating menues. 
+navCursor = 1 #Keeps track of where you are in menus. Navframes, which are used to create menues, work in groups of 4.
+#The navCursor keeps track of which menu item is sellected.
 
 #Init SD Card
 spi=SPI(1,baudrate=9600,sck=Pin(10),mosi=Pin(11),miso=Pin(12)) #12=MISO,11=MOSI,10=SCK
@@ -215,7 +216,7 @@ class dataCollectionObj:
         return "resetDisplay"
 
 class dataGraphObj:
-
+#This function collects and displays data in a bar chart style graph.
     def __init__(self, period, logType, infinite, iterations):
         self.period = period
         self.logType = logType
@@ -229,10 +230,7 @@ class dataGraphObj:
         oled.text("{:.3f}uSvh".format(data[3]),50,2,0)
         for x in graphCoords:
             oled.fill_rect(x[0],x[1],x[2],x[3],1)
-            #oled.fill_rect(x[0]-6,x[1],x[2]-6,x[3],0)
-        #oled.fill_rect(128-4,64-40, 128, 64, 1)
-        
-        
+             
         oled.show()
 
     def graphData(self):
@@ -261,7 +259,8 @@ class dataGraphObj:
             #UI response when buttons are pressed to reset. 
             if data == False:
                 break
-            
+            #moves the bars accross the screen by adjusting the X value by the size of the screen divided by the chosen resolution of the bar graph
+            #this is stored in "screenDivisions". It also pops off the oldest entry and appends the latest. 
             if len(graphCoords) >= screenDivisions:
                 try:
                     graphCoords.pop(0)
@@ -291,7 +290,7 @@ class dataGraphObj:
     
 class uiObject:
     def __init__(self, uiType, sizeX, sizeY, name,):
-        #uiObject is intended to be an abstract class. 
+        #uiObject is intended to be an abstract class that is the root of the UI section.  
         self.uiType = uiType
         self.sizeX = sizeX
         self.sizeY = sizeY
