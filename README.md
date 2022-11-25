@@ -24,3 +24,13 @@ Step 5) Use Thonny to copy the main.py, sdcard.py and the lib folder to the Pi P
 Step 6) Power on the Pi Pico, it should boot up and load the application. 
 
 Step 7) Once you test everything, use #4-40x3/4" to affix the pieces together. The printed components screw into the standoffs included in the MightyOhm kit. 
+
+Reference Pictures:
+
+![IMG_0333](https://user-images.githubusercontent.com/118999263/203877978-4ca4c1a1-4ab0-4144-ad73-19199ea3d9b2.jpeg)
+
+![IMG_0346](https://user-images.githubusercontent.com/118999263/203877989-61a0076b-e78d-45ed-b960-32e18d5fa310.JPG)
+
+![IMG_0334](https://user-images.githubusercontent.com/118999263/203877999-b6fe1c10-d57e-45d5-ba93-95b97692edf8.jpeg)
+
+![IMG_0338](https://user-images.githubusercontent.com/118999263/203878005-e648ba02-c0b3-4b4d-baf3-4961ed177ec4.jpeg)
