@@ -12,6 +12,7 @@ Parts:
 7) https://mightyohm.com/blog/products/geiger-counter/
 
 Step 1) Connect all components as discussed in the pinout document under the Documentation section. I used the item under the 5th Amazon link to make detachable cables for easy component replacement. To connect the Pi to the MightyOhm I used a custom cable, made using the below steps:
+
       1) Cut a GPIO jumper cable, leaving about 3/4" of wire. You want to use the female side of the cable for this purpose. 
       2) Remove the plastic housing from the connector using side cutters. Be careful here to avoid cutting the wire inside.
       3) Use heatshrink around the remaining metal connector. 
