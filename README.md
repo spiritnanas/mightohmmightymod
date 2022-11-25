@@ -25,6 +25,12 @@ Step 6) Power on the Pi Pico, it should boot up and load the application.
 
 Step 7) Once you test everything, use #4-40x3/4" to affix the pieces together. The printed components screw into the standoffs included in the MightyOhm kit. 
 
+Demo Videos:
+
+https://www.youtube.com/shorts/H37LoZpWwPw
+
+https://www.youtube.com/watch?v=6j20wASLf7Y
+
 Reference Pictures:
 
 ![IMG_0333](https://user-images.githubusercontent.com/118999263/203877978-4ca4c1a1-4ab0-4144-ad73-19199ea3d9b2.jpeg)
