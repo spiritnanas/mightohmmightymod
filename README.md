@@ -1,3 +1,12 @@
+To Do:
+- Add real time clock
+- Add in device calibration settings
+- Improve graphing screens
+- Custom PCB for all non MightyOhm components
+- Built in Lithium Ion battery that powers both Pi and Mighty Ohm
+- Shielding + Geiger tube cover to optionally block beta particals
+
+
 # mightohmmightymod
 A Pi Pico Mod for the MightOhm Geiger Counter Kit
 
